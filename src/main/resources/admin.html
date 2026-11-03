@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrativo - AstroCafé</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        :root {
+            --admin-bg: #f5efe8;
+            --admin-card: #ffffff;
+            --admin-sidebar: #faf5ef;
+            --admin-border: #e9ded0;
+            --admin-gold: #d88c2a;
+            --admin-gold-strong: #b86a1d;
+            --admin-green: #2f8f58;
+            --admin-red: #c24d3f;
+            --admin-text: #2b241d;
+            --admin-muted: #6d625a;
+            --admin-shadow: 0 18px 40px rgba(30, 20, 10, 0.08);
+        }
+
+        body {
+            background: var(--admin-bg);
+            color: var(--admin-text);
+        }
+
+        .admin-page {
+            padding: 60px 0 80px;
+            min-height: calc(100vh - 340px);
+        }
+
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 300px minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .admin-sidebar,
+        .content-card {
+            background: var(--admin-card);
+            border-radius: 22px;
+            box-shadow: var(--admin-shadow);
+            border: 1px solid var(--admin-border);
+        }
+
+        .admin-sidebar {
+            padding: 28px 22px;
+            position: sticky;
+            top: 100px;
+            background: var(--admin-sidebar);
+        }
+
+        .admin-identity {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--admin-border);
+            margin-bottom: 22px;
+        }
+
+        .admin-avatar {
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5d49b, #d18d32);
+            color: #fff;
+            font-size: 2rem;
+            box-shadow: 0 12px 24px rgba(216, 140, 42, 0.25);
+            margin-bottom: 14px;
+        }
+
+        .admin-identity h3 {
+            margin: 0 0 6px;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--admin-text);
+        }
+
+        .admin-identity p {
+            margin: 0;
+            color: var(--admin-muted);
+            font-weight: 600;
+        }
+
+        .admin-nav {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .admin-tab {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--admin-border);
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            color: var(--admin-text);
+            font-weight: 700;
+            transition: all 0.25s ease;
+        }
+
+        .admin-tab i {
+            width: 18px;
+            text-align: center;
+            color: var(--admin-gold-strong);
+        }
+
+        .admin-tab:hover,
+        .admin-tab.active {
+            background: linear-gradient(135deg, #f6d9a7, #efc073);
+            border-color: transparent;
+            box-shadow: 0 12px 22px rgba(213, 148, 40, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--admin-border);
+        }
+
+        .admin-stat {
+            text-align: center;
+            padding: 16px 12px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--admin-border);
+        }
+
+        .admin-stat strong {
+            display: block;
+            font-size: 1.65rem;
+            line-height: 1.2;
+            color: var(--admin-gold-strong);
+            font-weight: 800;
+        }
+
+        .admin-stat span {
+            color: var(--admin-muted);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .content-card {
+            padding: 28px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 24px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--admin-border);
+            flex-wrap: wrap;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--admin-text);
+        }
+
+        .section-header p {
+            margin: 6px 0 0;
+            color: var(--admin-muted);
+            font-weight: 600;
+        }
+
+        .admin-order-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .admin-order-card {
+            background: #fbf9f5;
+            border: 1px solid var(--admin-border);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 10px 22px rgba(30, 20, 10, 0.04);
+        }
+
+        .admin-order-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .admin-order-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .admin-order-id {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--admin-text);
+        }
+
+        .admin-order-client {
+            color: var(--admin-muted);
+            font-weight: 600;
+        }
+
+        .admin-order-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .admin-order-status.atendimento {
+            background: rgba(216, 140, 42, 0.12);
+            color: var(--admin-gold-strong);
+        }
+
+        .admin-order-status.finalizado {
+            background: rgba(47, 143, 88, 0.12);
+            color: var(--admin-green);
+        }
+
+        .admin-order-body {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .admin-order-items {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .admin-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            border-bottom: 1px dashed var(--admin-border);
+            padding-bottom: 8px;
+            color: var(--admin-text);
+        }
+
+        .admin-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .admin-item-name {
+            font-weight: 700;
+        }
+
+        .admin-item-qty {
+            color: var(--admin-muted);
+        }
+
+        .admin-order-side {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            padding: 16px;
+        }
+
+        .admin-order-detail {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+            color: var(--admin-muted);
+            font-weight: 700;
+        }
+
+        .admin-order-detail strong {
+            color: var(--admin-text);
+        }
+
+        .admin-order-actions {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .admin-action-btn {
+            padding: 11px 16px;
+            border-radius: 12px;
+            font-weight: 800;
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .admin-action-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .admin-action-btn.primary {
+            background: linear-gradient(135deg, var(--admin-gold), var(--admin-gold-strong));
+            color: white;
+            box-shadow: 0 10px 18px rgba(184, 106, 29, 0.25);
+        }
+
+        .admin-action-btn.secondary {
+            background: rgba(47, 143, 88, 0.1);
+            color: var(--admin-green);
+            border: 1px solid rgba(47, 143, 88, 0.2);
+        }
+
+        .empty-state {
+            padding: 28px;
+            text-align: center;
+            border: 1px dashed var(--admin-border);
+            border-radius: 18px;
+            color: var(--admin-muted);
+            font-weight: 700;
+            background: rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 980px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .admin-order-body {
+                grid-template-columns: 1fr;
+            }
+
+            .content-card,
+            .admin-sidebar {
+                padding: 18px;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="admin">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="static/img/Logo-AstraCafé.v2.png" alt="AstraCafé Logo" style="height: 50px; width: auto;" class="me-2">
+                <span class="ms-2">AstroCafé</span>
+            </a>
+
+            <nav class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Administrativo</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="conta.html" id="headerAccountLink" class="btn-login-header">
+                            <i class="fas fa-user"></i> Minha conta
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-minha-conta">
+        <div class="hero-content">
+            <h1>Administrativo</h1>
+            <p>Gestão de pedidos e atendimento em tempo real</p>
+        </div>
+    </section>
+
+    <main class="admin-page">
+        <div class="container">
+            <div class="admin-layout">
+                <aside class="admin-sidebar">
+                    <div class="admin-identity">
+                        <div class="admin-avatar"><i class="fas fa-user-tie"></i></div>
+                        <h3>Gerência</h3>
+                        <p>Área administrativa</p>
+                    </div>
+
+                    <nav class="admin-nav" aria-label="Menu administrativo">
+                        <button class="admin-tab active" data-status="em-atendimento" type="button">
+                            <i class="fas fa-clock"></i>
+                            Em atendimento
+                        </button>
+                        <button class="admin-tab" data-status="finalizados" type="button">
+                            <i class="fas fa-check-circle"></i>
+                            Finalizados
+                        </button>
+                    </nav>
+
+                    <div class="admin-stats">
+                        <div class="admin-stat">
+                            <strong id="countAtendimento">0</strong>
+                            <span>Ativos</span>
+                        </div>
+                        <div class="admin-stat">
+                            <strong id="countFinalizados">0</strong>
+                            <span>Finalizados</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <section class="admin-panel">
+                    <div class="content-card">
+                        <div class="section-header">
+                            <div>
+                                <h2 id="panelTitle">Em atendimento</h2>
+                                <p id="panelSubtitle">Pedidos aguardando atenção da equipe</p>
+                            </div>
+                            <button type="button" class="btn-login-header admin-refresh" id="refreshOrders">
+                                <i class="fas fa-sync-alt"></i> Atualizar
+                            </button>
+                        </div>
+
+                        <div id="adminOrderList" class="admin-order-list" aria-live="polite"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>AstroCafé</h5>
+                    <p>A melhor experiência gourmet de café em um único lugar.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-light">Início</a></li>
+                        <li><a href="produtos.html" class="text-decoration-none text-light">Produtos</a></li>
+                        <li><a href="sobre.html" class="text-decoration-none text-light">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Receba promoções exclusivas e novidades</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control form-control-sm" placeholder="Seu email">
+                        <button type="button" class="btn btn-warning btn-sm ms-2">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 AstroCafé. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            const currentUser = JSON.parse(localStorage.getItem('astracafe_current_user') || 'null');
+            const isManager = currentUser && (currentUser.role === 'gerente' || (currentUser.email || '').toLowerCase() === 'gerente@astracafe.com');
+
+            if (!isManager) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const STORAGE_KEY = 'astracafe_admin_orders';
+            const defaultOrders = [
+                {
+                    id: 'A-1048',
+                    cliente: 'Ana Souza',
+                    mesa: 'Mesa 07',
+                    horario: '13:45',
+                    status: 'em-atendimento',
+                    tipo: 'Express',
+                    total: 38.5,
+                    itens: [
+                        { nome: 'Cappuccino Premium', qtd: 2 },
+                        { nome: 'Croissant de Chocolate', qtd: 1 },
+                        { nome: 'Água Mineral', qtd: 1 }
+                    ]
+                },
+                {
+                    id: 'A-1039',
+                    cliente: 'João Pereira',
+                    mesa: 'Mesa 12',
+                    horario: '12:15',
+                    status: 'em-atendimento',
+                    tipo: 'Delivery',
+                    total: 52.0,
+                    itens: [
+                        { nome: 'Café Gelado Gourmet', qtd: 2 },
+                        { nome: 'Torta de Limão', qtd: 1 }
+                    ]
+                },
+                {
+                    id: 'A-1035',
+                    cliente: 'Lívia Mendes',
+                    mesa: 'Mesa 03',
+                    horario: '11:30',
+                    status: 'em-atendimento',
+                    tipo: 'Presencial',
+                    total: 24.5,
+                    itens: [
+                        { nome: 'Café Coado', qtd: 1 },
+                        { nome: 'Pão de queijo', qtd: 2 }
+                    ]
+                },
+                {
+                    id: 'A-1024',
+                    cliente: 'Pedro Nunes',
+                    mesa: 'Mesa 19',
+                    horario: '09:10',
+                    status: 'finalizados',
+                    tipo: 'Presencial',
+                    total: 44.0,
+                    itens: [
+                        { nome: 'Cold Brew', qtd: 1 },
+                        { nome: 'Brunch de Frutas', qtd: 1 }
+                    ]
+                },
+                {
+                    id: 'A-1018',
+                    cliente: 'Maria Clara',
+                    mesa: 'Mesa 10',
+                    horario: '08:40',
+                    status: 'finalizados',
+                    tipo: 'Delivery',
+                    total: 61.2,
+                    itens: [
+                        { nome: 'Café Expresso', qtd: 2 },
+                        { nome: 'Donut de Chocolate', qtd: 3 },
+                        { nome: 'Brownie', qtd: 1 }
+                    ]
+                }
+            ];
+
+            function formatMoney(value) {
+                return new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                }).format(Number(value || 0));
+            }
+
+            function getOrders() {
+                try {
+                    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+                    if (Array.isArray(saved) && saved.length) return saved;
+                } catch (error) {
+                    console.error('Erro ao carregar pedidos admin:', error);
+                }
+
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultOrders));
+                return defaultOrders;
+            }
+
+            function saveOrders(orders) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+            }
+
+            function updateStats(orders) {
+                const active = orders.filter(item => item.status === 'em-atendimento').length;
+                const finished = orders.filter(item => item.status === 'finalizados').length;
+                const countAtendimento = document.getElementById('countAtendimento');
+                const countFinalizados = document.getElementById('countFinalizados');
+
+                if (countAtendimento) countAtendimento.textContent = String(active);
+                if (countFinalizados) countFinalizados.textContent = String(finished);
+            }
+
+            function getStatusLabel(status) {
+                return status === 'finalizados' ? 'Finalizado' : 'Em atendimento';
+            }
+
+            function renderCards() {
+                const list = document.getElementById('adminOrderList');
+                const activeTab = document.querySelector('.admin-tab.active')?.dataset.status || 'em-atendimento';
+                const orders = getOrders().filter(order => order.status === activeTab);
+
+                const title = document.getElementById('panelTitle');
+                const subtitle = document.getElementById('panelSubtitle');
+
+                if (title) {
+                    title.textContent = activeTab === 'finalizados' ? 'Finalizados' : 'Em atendimento';
+                }
+
+                if (subtitle) {
+                    subtitle.textContent = activeTab === 'finalizados'
+                        ? 'Pedidos já concluídos e entregues'
+                        : 'Pedidos aguardando atenção da equipe';
+                }
+
+                updateStats(getOrders());
+
+                if (!list) return;
+
+                if (!orders.length) {
+                    list.innerHTML = '<div class="empty-state">Nenhum pedido nesta categoria no momento.</div>';
+                    return;
+                }
+
+                list.innerHTML = orders.map(order => `
+                    <article class="admin-order-card">
+                        <div class="admin-order-header">
+                            <div class="admin-order-meta">
+                                <span class="admin-order-id">${order.id}</span>
+                                <span class="admin-order-client">${order.cliente}</span>
+                            </div>
+                            <span class="admin-order-status ${order.status === 'finalizados' ? 'finalizado' : 'atendimento'}">
+                                <i class="fas ${order.status === 'finalizados' ? 'fa-check-circle' : 'fa-clock'}"></i>
+                                ${getStatusLabel(order.status)}
+                            </span>
+                        </div>
+
+                        <div class="admin-order-body">
+                            <div>
+                                <div class="admin-order-detail">
+                                    <span>Cliente</span>
+                                    <strong>${order.cliente}</strong>
+                                </div>
+                                <div class="admin-order-detail">
+                                    <span>Local</span>
+                                    <strong>${order.mesa}</strong>
+                                </div>
+                                <div class="admin-order-detail">
+                                    <span>Tipo</span>
+                                    <strong>${order.tipo}</strong>
+                                </div>
+
+                                <div class="admin-order-items">
+                                    ${order.itens.map(item => `
+                                        <div class="admin-item">
+                                            <span class="admin-item-name">${item.nome}</span>
+                                            <span class="admin-item-qty">Qtd: ${item.qtd}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div class="admin-order-side">
+                                <div class="admin-order-detail">
+                                    <span>Horário</span>
+                                    <strong>${order.horario}</strong>
+                                </div>
+                                <div class="admin-order-detail">
+                                    <span>Total</span>
+                                    <strong>${formatMoney(order.total)}</strong>
+                                </div>
+
+                                <div class="admin-order-actions">
+                                    <button
+                                        type="button"
+                                        class="admin-action-btn ${order.status === 'finalizados' ? 'secondary' : 'primary'}"
+                                        data-action="toggle-status"
+                                        data-id="${order.id}"
+                                    >
+                                        ${order.status === 'finalizados' ? 'Reabrir pedido' : 'Finalizar pedido'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                `).join('');
+            }
+
+            function bindEvents() {
+                document.querySelectorAll('.admin-tab').forEach(button => {
+                    button.addEventListener('click', () => {
+                        document.querySelectorAll('.admin-tab').forEach(tab => tab.classList.remove('active'));
+                        button.classList.add('active');
+                        renderCards();
+                    });
+                });
+
+                document.getElementById('refreshOrders')?.addEventListener('click', () => {
+                    renderCards();
+                });
+
+                document.addEventListener('click', (event) => {
+                    const trigger = event.target.closest('[data-action="toggle-status"]');
+                    if (!trigger) return;
+
+                    const orderId = trigger.dataset.id;
+                    const orders = getOrders();
+                    const order = orders.find(item => item.id === orderId);
+                    if (!order) return;
+
+                    order.status = order.status === 'finalizados' ? 'em-atendimento' : 'finalizados';
+                    saveOrders(orders);
+                    renderCards();
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                if (document.body.dataset.page !== 'admin') return;
+                bindEvents();
+                renderCards();
+            });
+        })();
+    </script>
+</body>
+</html>

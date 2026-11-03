@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - AstroCafé</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body data-page="pedidos">
+    <!-- HEADER/NAVEGAÇÃO -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <img src="static/img/Logo-AstraCafé.v2.png" alt="AstraCafé Logo" style="height: 50px; width: auto;"
+                    class="me-2">
+                <span class="ms-2">AstroCafé</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                    <li class="nav-item admin-link-item" id="adminLinkItem" style="display:none;">
+                        <a class="nav-link" href="admin.html">Administrativo</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a href="#" class="btn-login-header" id="logoutHeaderBtn">
+                            <i class="fas fa-sign-out-alt"></i> Sair
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SEÇÃO HERO -->
+    <section class="hero-minha-conta">
+        <div class="hero-content">
+            <h1>Pedidos</h1>
+            <p>Acompanhe seus pedidos e o status das suas compras</p>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="minha-conta-page">
+        <div class="container">
+            <div class="row g-4">
+                <!-- SIDEBAR PERFIL -->
+                <div class="col-lg-3">
+                    <div class="sidebar-perfil">
+                        <!-- Avatar -->
+                        <div class="perfil-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+                                alt="Perfil">
+                            <div class="avatar-badge">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-2">
+                            <label for="profilePhotoInput" class="btn btn-outline-secondary btn-sm">
+                                <i class="fas fa-camera me-1"></i> Alterar foto
+                            </label>
+                            <input type="file" id="profilePhotoInput" accept="image/*" class="visually-hidden"
+                                aria-label="Escolher uma nova foto de perfil">
+                            <p id="profilePhotoMessage" class="small mt-2 mb-0" aria-live="polite"></p>
+                        </div>
+
+                        <!-- Info Usuário -->
+                        <div class="perfil-info">
+                            <h3 id="nomeUsuario">Bem-vindo!</h3>
+                            <p class="email" id="emailUsuario">usuario@email.com</p>
+                            <p class="status">
+                                <i class="fas fa-circle"></i>
+                                Autenticado
+                            </p>
+                        </div>
+
+                        <!-- Menu Sidebar -->
+                        <nav class="sidebar-menu">
+                            <a href="#pedidos" class="menu-item active" data-section="pedidos">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Meus Pedidos</span>
+                            </a>
+                            <a href="#perfil" class="menu-item" data-section="perfil">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Editar Perfil</span>
+                            </a>
+                            <a href="#enderecos" class="menu-item" data-section="enderecos">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Endereços</span>
+                            </a>
+                            <a href="#favoritos" class="menu-item" data-section="favoritos">
+                                <i class="fas fa-heart"></i>
+                                <span>Favoritos</span>
+                            </a>
+                            <a href="#historico" class="menu-item" data-section="historico">
+                                <i class="fas fa-history"></i>
+                                <span>Histórico</span>
+                            </a>
+                            <a href="#" class="menu-item logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </nav>
+
+                        <!-- Estatísticas -->
+                        <div class="perfil-stats">
+                            <div class="stat">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Pedidos</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">R$ 450</div>
+                                <div class="stat-label">Gasto Total</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUNA CONTEÚDO -->
+                <div class="col-lg-9">
+                    <!-- SEÇÃO PEDIDOS -->
+                    <div class="content-section active" id="pedidos-section">
+                        <div class="content-card">
+                            <div class="section-header">
+                                <h2>Meus Pedidos</h2>
+                                <div class="filtros-pedidos">
+                                    <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                                    <button class="filtro-btn" data-filtro="pendente">Pendentes</button>
+                                    <button class="filtro-btn" data-filtro="enviado">Enviados</button>
+                                    <button class="filtro-btn" data-filtro="entregue">Entregues</button>
+                                </div>
+                            </div>
+
+                            <div class="pedidos-container">
+                                <!-- Pedido 1 -->
+                                <div class="pedido-card" data-status="entregue">
+                                    <div class="pedido-header">
+                                        <div class="pedido-info">
+                                            <h4>Pedido #2024001</h4>
+                                            <p class="data">24 de Setembro, 2024</p>
+                                        </div>
+                                        <span class="status-badge entregue">
+                                            <i class="fas fa-check-circle"></i> Entregue
+                                        </span>
+                                    </div>
+
+                                    <div class="pedido-items">
+                                        <div class="item">
+                                            <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=80&h=80&fit=crop"
+                                                alt="Produto">
+                                            <div class="item-details">
+                                                <p class="item-nome">Cappuccino Premium</p>
+                                                <p class="item-qtd">Qtd: 2 | Tamanho: Grande</p>
+                                            </div>
+                                            <p class="item-preco">R$ 24,00</p>
+                                        </div>
+                                        <div class="item">
+                                            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=80&h=80&fit=crop"
+                                                alt="Produto">
+                                            <div class="item-details">
+                                                <p class="item-nome">Croissant de Chocolate</p>
+                                                <p class="item-qtd">Qtd: 1</p>
+                                            </div>
+                                            <p class="item-preco">R$ 7,50</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pedido-footer">
+                                        <div class="pedido-total">
+                                            <p>Subtotal: <span>R$ 31,50</span></p>
+                                            <p>Entrega: <span>R$ 5,00</span></p>
+                                            <h5>Total: <span>R$ 36,50</span></h5>
+                                        </div>
+                                        <button class="btn-detalhes">
+                                            <i class="fas fa-eye"></i> Ver Detalhes
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Pedido 2 -->
+                                <div class="pedido-card" data-status="enviado">
+                                    <div class="pedido-header">
+                                        <div class="pedido-info">
+                                            <h4>Pedido #2024002</h4>
+                                            <p class="data">22 de Setembro, 2024</p>
+                                        </div>
+                                        <span class="status-badge enviado">
+                                            <i class="fas fa-truck"></i> Em Trânsito
+                                        </span>
+                                    </div>
+
+                                    <div class="pedido-items">
+                                        <div class="item">
+                                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=80&h=80&fit=crop"
+                                                alt="Produto">
+                                            <div class="item-details">
+                                                <p class="item-nome">Café Gelado Gourmet</p>
+                                                <p class="item-qtd">Qtd: 3 | Tamanho: Médio</p>
+                                            </div>
+                                            <p class="item-preco">R$ 39,00</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pedido-footer">
+                                        <div class="pedido-total">
+                                            <p>Subtotal: <span>R$ 39,00</span></p>
+                                            <p>Entrega: <span>Grátis</span></p>
+                                            <h5>Total: <span>R$ 39,00</span></h5>
+                                        </div>
+                                        <button class="btn-detalhes">
+                                            <i class="fas fa-eye"></i> Ver Detalhes
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Pedido 3 -->
+                                <div class="pedido-card" data-status="pendente">
+                                    <div class="pedido-header">
+                                        <div class="pedido-info">
+                                            <h4>Pedido #2024003</h4>
+                                            <p class="data">25 de Setembro, 2024</p>
+                                        </div>
+                                        <span class="status-badge pendente">
+                                            <i class="fas fa-clock"></i> Processando
+                                        </span>
+                                    </div>
+
+                                    <div class="pedido-items">
+                                        <div class="item">
+                                            <img src="https://images.unsplash.com/photo-1559926176-25e08cfe49a8?w=80&h=80&fit=crop"
+                                                alt="Produto">
+                                            <div class="item-details">
+                                                <p class="item-nome">Grãos de Café Especiais</p>
+                                                <p class="item-qtd">Qtd: 1 | 250g</p>
+                                            </div>
+                                            <p class="item-preco">R$ 28,00</p>
+                                        </div>
+                                        <div class="item">
+                                            <img src="https://images.unsplash.com/photo-1590821969519-cd4628902d4a?w=80&h=80&fit=crop"
+                                                alt="Produto">
+                                            <div class="item-details">
+                                                <p class="item-nome">Salada de Frutas</p>
+                                                <p class="item-qtd">Qtd: 1</p>
+                                            </div>
+                                            <p class="item-preco">R$ 9,50</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pedido-footer">
+                                        <div class="pedido-total">
+                                            <p>Subtotal: <span>R$ 37,50</span></p>
+                                            <p>Entrega: <span>R$ 5,00</span></p>
+                                            <h5>Total: <span>R$ 42,50</span></h5>
+                                        </div>
+                                        <button class="btn-detalhes">
+                                            <i class="fas fa-eye"></i> Ver Detalhes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEÇÃO EDITAR PERFIL -->
+                    <div class="content-section" id="perfil-section">
+                        <div class="content-card">
+                            <h2>Editar Perfil</h2>
+
+                            <form class="form-perfil">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Nome Completo</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" class="form-control" value="João Silva">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            <input type="email" class="form-control" value="joao.silva@email.com">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Telefone</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <input type="tel" class="form-control" value="(11) 98765-4321">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Data de Nascimento</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                            <input type="date" class="form-control" value="1990-05-15">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button type="submit" class="btn-salvar">
+                                            <i class="fas fa-save"></i> Salvar Alterações
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- SEÇÃO ENDEREÇOS -->
+                    <div class="content-section" id="enderecos-section">
+                        <div class="content-card">
+                            <div class="section-header">
+                                <h2>Meus Endereços</h2>
+                                <button class="btn-adicionar-endereco">
+                                    <i class="fas fa-plus"></i> Novo Endereço
+                                </button>
+                            </div>
+
+                            <div class="enderecos-grid">
+                                <div class="endereco-card principal">
+                                    <div class="endereco-badge">Principal</div>
+                                    <h5>Casa</h5>
+                                    <p>Rua das Flores, 123</p>
+                                    <p>Apto 501 - Centro</p>
+                                    <p>São Paulo - SP, 01234-567</p>
+                                    <p class="complemento">Próximo à padaria</p>
+                                    <div class="endereco-acoes">
+                                        <button class="btn-acao"><i class="fas fa-edit"></i> Editar</button>
+                                        <button class="btn-acao"><i class="fas fa-trash"></i> Remover</button>
+                                    </div>
+                                </div>
+
+                                <div class="endereco-card">
+                                    <h5>Trabalho</h5>
+                                    <p>Av. Paulista, 1000</p>
+                                    <p>Sala 1500 - Bela Vista</p>
+                                    <p>São Paulo - SP, 01311-100</p>
+                                    <p class="complemento">Prédio azul</p>
+                                    <div class="endereco-acoes">
+                                        <button class="btn-acao"><i class="fas fa-edit"></i> Editar</button>
+                                        <button class="btn-acao"><i class="fas fa-trash"></i> Remover</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEÇÃO FAVORITOS -->
+                    <div class="content-section" id="favoritos-section">
+                        <div class="content-card">
+                            <h2>Produtos Favoritos</h2>
+
+                            <div class="favoritos-grid">
+                                <div class="favorito-card">
+                                    <div class="favorito-imagem">
+                                        <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=200&h=200&fit=crop"
+                                            alt="Produto">
+                                        <button class="btn-remover-favorito">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                    <h5>Cappuccino Premium</h5>
+                                    <p class="preco">R$ 12,00</p>
+                                    <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+                                </div>
+
+                                <div class="favorito-card">
+                                    <div class="favorito-imagem">
+                                        <img src="https://images.unsplash.com/photo-1559926176-25e08cfe49a8?w=200&h=200&fit=crop"
+                                            alt="Produto">
+                                        <button class="btn-remover-favorito">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                    <h5>Grãos de Café Especiais</h5>
+                                    <p class="preco">R$ 28,00</p>
+                                    <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+                                </div>
+
+                                <div class="favorito-card">
+                                    <div class="favorito-imagem">
+                                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop"
+                                            alt="Produto">
+                                        <button class="btn-remover-favorito">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                    <h5>Café Gelado Gourmet</h5>
+                                    <p class="preco">R$ 13,00</p>
+                                    <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEÇÃO HISTÓRICO -->
+                    <div class="content-section" id="historico-section">
+                        <div class="content-card">
+                            <h2>Histórico de Compras</h2>
+
+                            <div class="historico-lista">
+                                <div class="historico-item">
+                                    <div class="historico-data">25/09/2024</div>
+                                    <div class="historico-conteudo">
+                                        <h5>Compra de Grãos de Café</h5>
+                                        <p>Grãos de Café Especiais (250g) + Salada de Frutas</p>
+                                    </div>
+                                    <div class="historico-valor">R$ 42,50</div>
+                                </div>
+
+                                <div class="historico-item">
+                                    <div class="historico-data">22/09/2024</div>
+                                    <div class="historico-conteudo">
+                                        <h5>Pedido de Bebidas</h5>
+                                        <p>Café Gelado Gourmet (3x Médio)</p>
+                                    </div>
+                                    <div class="historico-valor">R$ 39,00</div>
+                                </div>
+
+                                <div class="historico-item">
+                                    <div class="historico-data">24/09/2024</div>
+                                    <div class="historico-conteudo">
+                                        <h5>Compra de Bebidas e Bolos</h5>
+                                        <p>Cappuccino Premium (2x Grande) + Croissant de Chocolate</p>
+                                    </div>
+                                    <div class="historico-valor">R$ 36,50</div>
+                                </div>
+
+                                <div class="historico-item">
+                                    <div class="historico-data">20/09/2024</div>
+                                    <div class="historico-conteudo">
+                                        <h5>Compra de Sobremesas</h5>
+                                        <p>Tiramisu Clássico (2x)</p>
+                                    </div>
+                                    <div class="historico-valor">R$ 27,00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>AstroCafé</h5>
+                    <p>A melhor experiência gourmet de café em um único lugar.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-light">Início</a></li>
+                        <li><a href="produtos.html" class="text-decoration-none text-light">Produtos</a></li>
+                        <li><a href="sobre.html" class="text-decoration-none text-light">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Receba promoções exclusivas e novidades</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control form-control-sm" placeholder="Seu email">
+                        <button class="btn btn-warning btn-sm ms-2">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 AstroCafé. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Logout -->
+    <div id="logoutModal" class="modal-logout">
+        <div class="modal-logout-content">
+            <i class="fas fa-sign-out-alt"></i>
+            <h3>Tem certeza que deseja sair?</h3>
+            <p>Você será redirecionado para a página inicial.</p>
+            <div class="modal-buttons">
+                <button id="confirmLogout" class="btn-confirmar">Sim, Sair</button>
+                <button id="cancelLogout" class="btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - AstroCafé</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body data-page="login">
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="static/img/Logo-AstraCafé.v2.png" alt="AstraCafé Logo" style="height: 50px; width: auto;" class="me-2">
+        <span class="ms-2">AstroCafé</span>
+      </a>
+
+      <nav class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+          <li class="nav-item ms-3">
+            <a href="login.html" id="headerAccountLink" class="btn-login-header">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Bem-vindo de volta</h2>
+        <p>Acesse sua conta AstroCafé</p>
+      </div>
+
+      <div id="authMessage" class="auth-message"></div>
+
+      <div class="alert alert-light border-0 shadow-sm mb-3 small text-muted">
+        <i class="fas fa-info-circle me-2"></i>Para solicitar pedidos, é necessário estar cadastrado e autenticado.
+      </div>
+
+      <div class="role-selector" aria-label="Tipo de acesso">
+        <label class="role-option active">
+          <input type="radio" name="perfilLogin" value="cliente" checked>
+          <span>Cliente</span>
+        </label>
+        <label class="role-option">
+          <input type="radio" name="perfilLogin" value="gerente">
+          <span>Gerente</span>
+        </label>
+      </div>
+
+      <form class="auth-form" id="loginForm">
+        <div class="form-group-auth">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="seu@email.com" required>
+        </div>
+
+        <div class="form-group-auth">
+          <label for="password">Senha</label>
+          <input type="password" id="password" placeholder="Sua senha" required>
+        </div>
+
+        <button type="submit" class="auth-button">Entrar</button>
+      </form>
+
+      <div class="auth-link">
+        <p>Não tem uma conta? <a href="cadastro.html">Criar agora</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/script.js"></script>
+</body>
+</html>

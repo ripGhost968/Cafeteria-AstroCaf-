@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar conta - AstroCafé</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body data-page="cadastro">
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="static/img/Logo-AstraCafé.v2.png" alt="AstraCafé Logo" style="height: 50px; width: auto;" class="me-2">
+        <span class="ms-2">AstroCafé</span>
+      </a>
+
+      <nav class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+          <li class="nav-item admin-link-item" id="adminLinkItem" style="display:none;">
+            <a class="nav-link" href="admin.html">Administrativo</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a href="login.html" id="headerAccountLink" class="btn-login-header">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card">
+      <a href="index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i>
+        Voltar para o início
+      </a>
+
+      <div class="auth-header">
+        <h2>Crie sua conta</h2>
+        <p>Faça parte da experiência AstroCafé</p>
+      </div>
+
+      <div id="authMessage" class="auth-message"></div>
+
+      <div class="role-selector" aria-label="Tipo de conta">
+        <label class="role-option active">
+          <input type="radio" name="perfilCadastro" value="cliente" checked>
+          <span>Cliente</span>
+        </label>
+        <label class="role-option">
+          <input type="radio" name="perfilCadastro" value="gerente">
+          <span>Gerente</span>
+        </label>
+      </div>
+
+      <form class="auth-form" id="registerForm">
+        <div class="form-group-auth">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="form-group-auth">
+          <label for="sobrenome">Sobrenome</label>
+          <input type="text" id="sobrenome" placeholder="Seu sobrenome" required>
+        </div>
+
+        <div class="form-group-auth">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="seu@email.com" required>
+        </div>
+
+        <div class="form-group-auth">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" placeholder="Crie uma senha" required>
+        </div>
+
+        <div class="form-group-auth">
+          <label for="confirmar-senha">Confirmar senha</label>
+          <input type="password" id="confirmar-senha" placeholder="Confirme sua senha" required>
+        </div>
+
+        <div class="form-group-auth" id="managerCodeField" style="display:none;">
+          <label for="codigo-gerente">Código de acesso do gerente</label>
+          <input type="password" id="codigo-gerente" placeholder="Digite o código do gerente">
+        </div>
+
+        <button type="submit" class="auth-button">Criar minha conta</button>
+      </form>
+
+      <div class="auth-link">
+        <p>Já possui uma conta? <a href="login.html">Entrar agora</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/script.js"></script>
+</body>
+</html>

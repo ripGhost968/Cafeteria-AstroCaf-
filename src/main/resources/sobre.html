@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - AstroCafé</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <!-- HEADER/NAVEGAÇÃO -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <img src="static/img/Logo-AstraCafé.v2.png" alt="AstraCafé Logo" style="height: 50px; width: auto;" class="me-2">
+                    <span class="ms-2">AstroCafé</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                    <li class="nav-item admin-link-item" id="adminLinkItem" style="display:none;">
+                        <a class="nav-link" href="admin.html">Administrativo</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a href="login.html" id="headerAccountLink" class="btn-login-header">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SEÇÃO HERO -->
+    <section class="hero-sobre">
+        <div class="hero-content">
+            <h1>Sobre o AstroCafé</h1>
+            <p>Conheça a história por trás de cada xícara de café</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO HISTÓRIA MONUMENTAL -->
+    <section class="historia-section">
+        <div class="container">
+            <div class="historia-header">
+                <h2 class="section-title">Nossa História</h2>
+                <p class="section-subtitle">Uma jornada apaixonante pelo café desde 2020</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2020 - A Fundação</h3>
+                        <p>
+                            Tudo começou com um sonho. Três amigos apaixonados por café se reuniram em um pequeno 
+                            espaço no coração da cidade. Com dedicação e amor pela profissão, fundamos o AstraCafé 
+                            com a missão de trazer a melhor experiência cafeeira para nossa comunidade.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2021 - Expansão Internacional</h3>
+                        <p>
+                            Começamos a importar grãos de café diretamente de fazendas sustentáveis ao redor do mundo. 
+                            Estabelecemos parcerias com produtores no Brasil, Colômbia, Etiópia e Vietnã, garantindo 
+                            qualidade premium em cada xícara servida.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2022 - Prêmios e Reconhecimento</h3>
+                        <p>
+                            Fomos reconhecidos como a melhor cafeteria gourmet da região, conquistando o prêmio 
+                            "Café Excellence 2022". Nossa dedicação à qualidade e inovação começou a ganhar destaque 
+                            em publicações especializadas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2023 - Comunidade em Crescimento</h3>
+                        <p>
+                            Alcançamos 50 mil clientes regulares e expandimos nossa equipe de baristas especializados. 
+                            Criamos a AstroCafé Academy para capacitar profissionais e compartilhar conhecimento sobre 
+                            arte e ciência do café.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2024 - Inovação Contínua</h3>
+                        <p>
+                            Lançamos nossa linha de produtos para venda, incluindo grãos especiais, café moído e cápsulas. 
+                            Hoje, o AstroCafé é referência em qualidade e inovação no mercado de cafés gourmet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO MISSÃO, VISÃO, VALORES -->
+    <section class="missao-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Nossa Filosofia</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="filosofia-card">
+                        <div class="filosofia-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Nossa Missão</h3>
+                        <p>
+                            Oferecer a melhor experiência cafeeira possível, cultivando relacionamentos significativos 
+                            através de cada xícara, utilizando apenas ingredientes premium e práticas sustentáveis.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="filosofia-card">
+                        <div class="filosofia-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Nossa Visão</h3>
+                        <p>
+                            Ser a cafeteria mais admirada e referência global em qualidade, inovação e excelência, 
+                            transformando o café em uma experiência memorável para cada cliente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="filosofia-card">
+                        <div class="filosofia-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Nossos Valores</h3>
+                        <p>
+                            Qualidade, Paixão, Sustentabilidade, Inovação e Respeito. Cada um desses valores guia 
+                            nossas decisões e define como interagimos com nossos clientes e parceiros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO ESTATÍSTICAS -->
+    <section class="estatisticas-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Números que Falam</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card">
+                        <h4 class="stat-number">50K+</h4>
+                        <p class="stat-label">Clientes Felizes</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card">
+                        <h4 class="stat-number">4.9★</h4>
+                        <p class="stat-label">Avaliação Média</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card">
+                        <h4 class="stat-number">15+</h4>
+                        <p class="stat-label">Países de Origem</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card">
+                        <h4 class="stat-number">32</h4>
+                        <p class="stat-label">Baristas Certificados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DIFERENCIAIS -->
+    <section class="diferenciais-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Por que Escolher o AstroCafé?</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="diferencial-card">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Ingredientes Premium</h4>
+                        <p>Selecionamos os melhores grãos de origem única em fazendas sustentáveis mundo afora.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="diferencial-card">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h4>Torrado Artesanal</h4>
+                        <p>Torrado no próprio estabelecimento diariamente para máxima frescura e qualidade.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="diferencial-card">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Baristas Especializados</h4>
+                        <p>Equipe certificada internacionalmente, com paixão pela arte e ciência do café.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="diferencial-card">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Sustentabilidade</h4>
+                        <p>Compromissados com práticas ambientais responsáveis e comércio justo.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="diferencial-card">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Gastronomia Refinada</h4>
+                        <p>Acompanhamentos gourmet selecionados para harmonizar perfeitamente com café.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="diferencial-card">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4>Ambiente Acolhedor</h4>
+                        <p>Espaço perfeito para trabalhar, estudar ou simplesmente aproveitar bons momentos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO EQUIPE -->
+    <section class="equipe-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Conheça Nossa Equipe</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="membro-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Fundador">
+                        <h4>Carlos Silva</h4>
+                        <p class="cargo">Fundador & CEO</p>
+                        <p class="descricao">Apaixonado por café há mais de 15 anos, liderou a fundação do AstraCafé.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="membro-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop" alt="Gerente">
+                        <h4>Amanda Costa</h4>
+                        <p class="cargo">Gerente de Operações</p>
+                        <p class="descricao">Responsável pela excelência em cada detalhe do nosso atendimento.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="membro-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Sommelier">
+                        <h4>Miguel Santos</h4>
+                        <p class="cargo">Sommelier de Café</p>
+                        <p class="descricao">Especialista em degustação, curador de nossa seleção premium.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="membro-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop" alt="Barista">
+                        <h4>Lucas Oliveira</h4>
+                        <p class="cargo">Master Barista</p>
+                        <p class="descricao">Campeão em latte art, traz perfeição a cada xícara.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO RESPONSABILIDADE SOCIAL -->
+    <section class="responsabilidade-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Compromisso Social</h2>
+            
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop" 
+                        alt="Responsabilidade Social" class="img-fluid rounded shadow">
+                </div>
+
+                <div class="col-lg-6">
+                    <h3 style="color: #8B4513; font-weight: 700; margin-bottom: 20px;">
+                        Fazendo Diferença na Comunidade
+                    </h3>
+                    
+                    <div class="compromisso-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h5>Comércio Justo</h5>
+                            <p>Pagamos preços justos aos nossos fornecedores, garantindo qualidade de vida aos produtores.</p>
+                        </div>
+                    </div>
+
+                    <div class="compromisso-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h5>Sustentabilidade Ambiental</h5>
+                            <p>Utilizamos embalagens ecológicas e doamos 1% dos lucros para projetos ambientais.</p>
+                        </div>
+                    </div>
+
+                    <div class="compromisso-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h5>Educação</h5>
+                            <p>Oferecemos bolsas de estudos para filhos de produtores de café parceiros.</p>
+                        </div>
+                    </div>
+
+                    <div class="compromisso-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h5>Capacitação</h5>
+                            <p>Realizamos workshops e cursos gratuitos na comunidade sobre artes e técnicas do café.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CTA -->
+    <section class="cta-section py-5">
+        <div class="container text-center">
+            <h2>Experimente a Magia do AstroCafé</h2>
+            <p>Visite-nos e descubra por que somos referência em café gourmet</p>
+            
+            <div class="cta-buttons">
+                <a href="produtos.html" class="btn-cta btn-primary">
+                    <i class="fas fa-shopping-bag"></i> Ver Produtos
+                </a>
+                <a href="index.html#contato" class="btn-cta btn-secondary">
+                    <i class="fas fa-map-marker-alt"></i> Nos Visite
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>AstroCafé</h5>
+                    <p>A melhor experiência gourmet de café em um único lugar.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-light">Início</a></li>
+                        <li><a href="produtos.html" class="text-decoration-none text-light">Produtos</a></li>
+                        <li><a href="sobre.html" class="text-decoration-none text-light">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Receba promoções exclusivas e novidades</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control form-control-sm" placeholder="Seu email">
+                        <button class="btn btn-warning btn-sm ms-2">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 AstroCafé. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>

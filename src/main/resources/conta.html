@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Conta - AstroCafé</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body data-page="conta">
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <img src="static/img/Logo-AstraCafé.v2.png" alt="AstraCafé Logo" style="height: 50px; width: auto;"
+          class="me-2">
+        <span class="ms-2">AstroCafé</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+          <li class="nav-item admin-link-item" id="adminLinkItem" style="display:none;">
+            <a class="nav-link" href="admin.html">Administrativo</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a href="pedidos.html" id="headerAccountLink" class="btn-login-header">
+              <i class="fas fa-shopping-bag"></i> Pedidos
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-conta">
+    <div class="hero-content">
+      <h1>Minha Conta</h1>
+      <p>Gerencie suas informações pessoais</p>
+    </div>
+  </section>
+
+  <main class="conta-page">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3">
+          <div class="sidebar-conta">
+            <div class="avatar-container">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" alt="Avatar"
+                class="avatar-img">
+              <div class="avatar-status"><i class="fas fa-check-circle"></i></div>
+            </div>
+
+            <div class="text-center mt-2">
+              <label for="profilePhotoInput" class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-camera me-1"></i> Alterar foto
+              </label>
+              <input type="file" id="profilePhotoInput" accept="image/*" class="visually-hidden"
+                aria-label="Escolher uma nova foto de perfil">
+              <p id="profilePhotoMessage" class="small mt-2 mb-0" aria-live="polite"></p>
+            </div>
+
+            <div class="user-info">
+              <h3 id="displayNome">Carregando...</h3>
+              <p id="displayEmail">carregando...</p>
+              <span class="online-status"><i class="fas fa-circle"></i> Online</span>
+            </div>
+
+            <nav class="sidebar-menu">
+              <a href="#perfil" class="menu-item active" data-section="perfil">
+                <i class="fas fa-user"></i> <span>Meu Perfil</span>
+              </a>
+              <a href="#endereco" class="menu-item" data-section="endereco">
+                <i class="fas fa-map-marker-alt"></i> <span>Endereços</span>
+              </a>
+              <a href="#seguranca" class="menu-item" data-section="seguranca">
+                <i class="fas fa-lock"></i> <span>Segurança</span>
+              </a>
+              <a href="#" class="menu-item logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> <span>Sair</span>
+              </a>
+            </nav>
+
+            <div class="user-stats">
+              <div class="stat-item">
+                <div class="stat-number" id="statPedidos">0</div>
+                <div class="stat-label">Pedidos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" id="statGasto">R$ 0,00</div>
+                <div class="stat-label">Gasto Total</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-9">
+          <div class="content-section active" id="perfil-section">
+            <div class="content-card">
+              <div class="section-title">
+                <h2><i class="fas fa-user-circle"></i> Meu Perfil</h2>
+                <p>Informações pessoais da sua conta</p>
+              </div>
+
+              <form class="form-perfil" id="formPerfil">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="perfil-nome" class="form-label"><i class="fas fa-user"></i> Nome Completo</label>
+                      <input type="text" id="perfil-nome" class="form-control" placeholder="Seu nome completo" required>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="perfil-email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                      <input type="email" id="perfil-email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="perfil-telefone" class="form-label"><i class="fas fa-phone"></i> Telefone</label>
+                      <input type="tel" id="perfil-telefone" class="form-control" placeholder="(11) 98765-4321">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="perfil-data" class="form-label"><i class="fas fa-calendar"></i> Data de
+                        Nascimento</label>
+                      <input type="date" id="perfil-data" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" class="btn-salvar">
+                      <i class="fas fa-save"></i> Salvar Alterações
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="content-section" id="endereco-section">
+            <div class="content-card">
+              <div class="section-title">
+                <h2><i class="fas fa-map-marker-alt"></i> Meus Endereços</h2>
+                <button type="button" class="btn-adicionar-endereco">
+                  <i class="fas fa-plus"></i> Novo Endereço
+                </button>
+              </div>
+
+              <div class="enderecos-grid" id="enderecosGrid"></div>
+            </div>
+          </div>
+
+          <div class="content-section" id="seguranca-section">
+            <div class="content-card">
+              <div class="section-title">
+                <h2><i class="fas fa-lock"></i> Segurança</h2>
+                <p>Gerencie sua senha e segurança</p>
+              </div>
+
+              <form class="form-seguranca" id="formSeguranca">
+                <div class="seguranca-item">
+                  <div class="item-header">
+                    <h4>Alterar Senha</h4>
+                    <p>Recomendamos trocar sua senha regularmente</p>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="senha-atual" class="form-label">Senha Atual</label>
+                    <input type="password" id="senha-atual" class="form-control" placeholder="Digite sua senha atual">
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="senha-nova" class="form-label">Nova Senha</label>
+                      <input type="password" id="senha-nova" class="form-control" placeholder="Digite uma nova senha">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="senha-confirma" class="form-label">Confirmar Senha</label>
+                      <input type="password" id="senha-confirma" class="form-control"
+                        placeholder="Confirme a nova senha">
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn-atualizar">
+                    <i class="fas fa-key"></i> Atualizar Senha
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>AstroCafé</h5>
+          <p>A melhor experiência gourmet de café em um único lugar.</p>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>Links Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-decoration-none text-light">Início</a></li>
+            <li><a href="produtos.html" class="text-decoration-none text-light">Produtos</a></li>
+            <li><a href="sobre.html" class="text-decoration-none text-light">Sobre</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Newsletter</h5>
+          <p>Receba promoções exclusivas e novidades</p>
+          <form class="d-flex">
+            <input type="email" class="form-control form-control-sm" placeholder="Seu email">
+            <button type="button" class="btn btn-warning btn-sm ms-2">Inscrever</button>
+          </form>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2024 AstroCafé. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="logoutModal" class="modal-logout">
+    <div class="modal-logout-content">
+      <i class="fas fa-sign-out-alt"></i>
+      <h3>Tem certeza que deseja sair?</h3>
+      <p>Você será redirecionado para a página inicial.</p>
+      <div class="modal-buttons">
+        <button id="confirmLogout" class="btn-confirmar">Sim, Sair</button>
+        <button id="cancelLogout" class="btn-cancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/script.js"></script>
+</body>
+
+</html>

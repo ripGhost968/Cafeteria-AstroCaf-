@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - AstroCafé</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <!-- HEADER/NAVEGAÇÃO -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <img src="static/img/Logo-AstraCafé.v2.png" alt="AstraCafé Logo" style="height: 50px; width: auto;" class="me-2">
+                    <span class="ms-2">AstroCafé</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                    <li class="nav-item admin-link-item" id="adminLinkItem" style="display:none;">
+                        <a class="nav-link" href="admin.html">Administrativo</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a href="login.html" id="headerAccountLink" class="btn-login-header">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SEÇÃO HERO -->
+    <section class="hero-produtos">
+        <div class="hero-content">
+            <h1>Nossos Produtos</h1>
+            <p>Descubra nossa variedade de bebidas e alimentos premium</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO FILTROS -->
+    <section class="filtros-section py-5">
+        <div class="container">
+            <div class="filtros-container">
+                <h3 class="filtros-title">Filtrar por Categoria</h3>
+                <div class="filtros-grid">
+                    <button class="filtro-btn active" data-filtro="todos">
+                        <i class="fas fa-th"></i> Todos os Produtos
+                    </button>
+                    <button class="filtro-btn" data-filtro="quentes">
+                        <i class="fas fa-mug-hot"></i> Bebidas Quentes
+                    </button>
+                    <button class="filtro-btn" data-filtro="geladas">
+                        <i class="fas fa-ice-cream"></i> Bebidas Geladas
+                    </button>
+                    <button class="filtro-btn" data-filtro="padaria">
+                        <i class="fas fa-bread-slice"></i> Padaria
+                    </button>
+                    <button class="filtro-btn" data-filtro="salgados">
+                        <i class="fas fa-hamburger"></i> Salgados
+                    </button>
+                    <button class="filtro-btn" data-filtro="sobremesas">
+                        <i class="fas fa-cake-candles"></i> Sobremesas
+                    </button>
+                    <button class="filtro-btn" data-filtro="saudaveis">
+                        <i class="fas fa-leaf"></i> Saudáveis
+                    </button>
+                    <button class="filtro-btn" data-filtro="venda">
+                        <i class="fas fa-bag-shopping"></i> Produtos para Venda
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PRODUTOS -->
+    <main class="produtos-section py-5">
+        <div class="container">
+            <div class="produtos-grid" id="produtosGrid">
+                <!-- Bebidas Quentes -->
+                <div class="produto-card" data-categoria="quentes">
+                    <div class="produto-imagem">
+                        <img src="static/img/cafe_expresso.jpg" alt="Café Expresso">
+                        <span class="categoria-badge">Quente</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Café Expresso</h5>
+                        <p class="descricao">Café puro, intenso e aromático extraído na pressão perfeita</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(48)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 8,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="quentes">
+                    <div class="produto-imagem">
+                        <img src="static/img/cafe coado.jpg">
+                        <span class="categoria-badge">Quente</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Café Coado</h5>
+                        <p class="descricao">Café tradicional coado na hora, leve e encorpado</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(52)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 6,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="quentes">
+                    <div class="produto-imagem">
+                        <img src="static/img/Cappucino.jpg">
+                        <span class="categoria-badge">Quente</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Cappuccino</h5>
+                        <p class="descricao">Espresso cremoso com leite vaporizado e canela</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(61)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 12,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bebidas Geladas -->
+                <div class="produto-card" data-categoria="geladas">
+                    <div class="produto-imagem">
+                        <img src="static/img/cafe-gelado.jpg" alt="Café Gelado">
+                        <span class="categoria-badge">Gelado</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Café Gelado</h5>
+                        <p class="descricao">Café coado refrescante servido com gelo e açúcar</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(44)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 9,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="geladas">
+                    <div class="produto-imagem">
+                        <img src="static/img/cold-brew.jpg" alt="Cold Brew">
+                        <span class="categoria-badge">Gelado</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Cold Brew</h5>
+                        <p class="descricao">Café macerado por 12 horas, suave e refrescante</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(39)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 10,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="geladas">
+                    <div class="produto-imagem">
+                        <img src="static/img/frappe.jpg" alt="Frappé">
+                        <span class="categoria-badge">Gelado</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Frappé</h5>
+                        <p class="descricao">Café congelado cremoso com cobertura de chantilly</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(58)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 13,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Padaria -->
+                <div class="produto-card" data-categoria="padaria">
+                    <div class="produto-imagem">
+                        <img src="static/img/pao-de-queijo.jpg" alt="Pão de Queijo">
+                        <span class="categoria-badge">Padaria</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Pão de Queijo</h5>
+                        <p class="descricao">Pão de queijo macio e quentinho, receita tradicional</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(55)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 5,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="padaria">
+                    <div class="produto-imagem">
+                        <img src="static/img/croissant.jpg" alt="Croissant">
+                        <span class="categoria-badge">Padaria</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Croissant</h5>
+                        <p class="descricao">Croissant folhado com chocolate belga derretido</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(67)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 7,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="padaria">
+                    <div class="produto-imagem">
+                        <img src="static/img/sonho.jpg" alt="Sonho">
+                        <span class="categoria-badge">Padaria</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Sonho</h5>
+                        <p class="descricao">Donut macio com calda de açúcar e canela</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(49)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 4,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salgados -->
+                <div class="produto-card" data-categoria="salgados">
+                    <div class="produto-imagem">
+                        <img src="static/img/sanduiche-natural.jpg" alt="Sanduíche Natural">
+                        <span class="categoria-badge">Salgado</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Sanduíche Natural</h5>
+                        <p class="descricao">Sanduíche fresco com hortaliças, queijo e peito de peru</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(43)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 11,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="salgados">
+                    <div class="produto-imagem">
+                        <img src="static/img/misto-quente.jpg" alt="Misto Quente">
+                        <span class="categoria-badge">Salgado</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Misto Quente</h5>
+                        <p class="descricao">Pão na chapa com presunto, queijo e manteiga</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(51)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 8,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="salgados">
+                    <div class="produto-imagem">
+                        <img src="static/img/tostex.jpg" alt="Tostex">
+                        <span class="categoria-badge">Salgado</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Tostex</h5>
+                        <p class="descricao">Salgadinho crocante na chapa, irresistível</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(46)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 6,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sobremesas -->
+                <div class="produto-card" data-categoria="sobremesas">
+                    <div class="produto-imagem">
+                        <img src="static/img/pudim.jpg" alt="Pudim">
+                        <span class="categoria-badge">Sobremesa</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Pudim</h5>
+                        <p class="descricao">Pudim cremoso com calda de caramelo caseira</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(38)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 7,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="sobremesas">
+                    <div class="produto-imagem">
+                        <img src="static/img/brigadeiro-gourmet.jpg" alt="Brigadeiro Gourmet">
+                        <span class="categoria-badge">Sobremesa</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Brigadeiro Gourmet</h5>
+                        <p class="descricao">Brigadeiro feito com chocolate belga premium</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(72)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 5,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="sobremesas">
+                    <div class="produto-imagem">
+                        <img src="static/img/palha-italiana.jpg" alt="Palha Italiana">
+                        <span class="categoria-badge">Sobremesa</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Palha Italiana</h5>
+                        <p class="descricao">Massa folhada com calda de chocolate e avelã</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(41)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 8,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saudáveis -->
+                <div class="produto-card" data-categoria="saudaveis">
+                    <div class="produto-imagem">
+                        <img src="static/img/salada-de-frutas.jpg" alt="Salada de Frutas">
+                        <span class="categoria-badge">Saudável</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Salada de Frutas</h5>
+                        <p class="descricao">Frutas frescas da estação com mel e limão</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(35)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 9,50</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="saudaveis">
+                    <div class="produto-imagem">
+                        <img src="static/img/iorgute-com-granolas.jpg" alt="Iogurte com Granola">
+                        <span class="categoria-badge">Saudável</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Iogurte com Granola</h5>
+                        <p class="descricao">Iogurte grego cremoso com granola artesanal</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(29)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 10,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="saudaveis">
+                    <div class="produto-imagem">
+                        <img src="static/img/sanduiche-integral.jpg" alt="Sanduíche Integral">
+                        <span class="categoria-badge">Saudável</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Sanduíche Integral</h5>
+                        <p class="descricao">Pão integral com proteína e hortaliças frescas</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(33)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 12,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produtos para Venda -->
+                <div class="produto-card" data-categoria="venda">
+                    <div class="produto-imagem">
+                        <img src="static/img/graos-cafe-especiais.jpg" alt="Grãos de Café">
+                        <span class="categoria-badge">Para Venda</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Grãos de Café Especiais</h5>
+                        <p class="descricao">250g de grãos premium torrados recentemente</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(56)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 28,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="venda">
+                    <div class="produto-imagem">
+                        <img src="static/img/cafe-moido.jpg" alt="Café Moído">
+                        <span class="categoria-badge">Para Venda</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Café Moído</h5>
+                        <p class="descricao">500g de café moído na hora, fresco e aromático</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(42)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 35,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-categoria="venda">
+                    <div class="produto-imagem">
+                        <img src="static/img/capsulas-cafe.jpg" alt="Cápsulas de Café">
+                        <span class="categoria-badge">Para Venda</span>
+                    </div>
+                    <div class="produto-info">
+                        <h5>Cápsulas de Café</h5>
+                        <p class="descricao">Caixa com 10 cápsulas compatíveis com Nespresso</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(64)</span>
+                        </div>
+                        <div class="produto-footer">
+                            <span class="preco">R$ 22,00</span>
+                            <button class="btn-adicionar">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>AstroCafé</h5>
+                    <p>A melhor experiência gourmet de café em um único lugar.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-light">Início</a></li>
+                        <li><a href="produtos.html" class="text-decoration-none text-light">Produtos</a></li>
+                        <li><a href="sobre.html" class="text-decoration-none text-light">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Receba promoções exclusivas e novidades</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control form-control-sm" placeholder="Seu email">
+                        <button class="btn btn-warning btn-sm ms-2">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 AstroCafé. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="btn-carrinho" id="btnCarrinho" aria-label="Abrir carrinho">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="carrinho-badge" id="cartCount">0</span>
+</button>
+
+<aside class="carrinho-container" id="carrinhoContainer" aria-live="polite">
+    <div class="carrinho-header">
+        <h2>Meu Carrinho</h2>
+        <button type="button" class="carrinho-fechar" id="closeCarrinho" aria-label="Fechar carrinho">×</button>
+    </div>
+
+    <div class="carrinho-items" id="cartItems"></div>
+
+    <div class="carrinho-footer">
+        <div class="mb-3">
+            <label for="pedidoTipoAtendimento" class="form-label small text-uppercase fw-bold">Tipo de atendimento</label>
+            <select id="pedidoTipoAtendimento" class="form-select form-select-sm">
+                <option value="balcao">Balcão</option>
+                <option value="mesa">Mesa</option>
+                <option value="entrega">Entrega</option>
+            </select>
+        </div>
+        <div class="total-item">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">R$ 0,00</strong>
+        </div>
+        <div class="total-item">
+            <span>Taxa</span>
+            <strong id="cartTaxa">R$ 0,00</strong>
+        </div>
+        <div class="total-final">
+            <span>Total</span>
+            <strong id="cartTotal">R$ 0,00</strong>
+        </div>
+        <button type="button" class="btn-finalizar" id="checkoutButton">Finalizar Pedido</button>
+    </div>
+</aside>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>
